@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import './App.css'
 
-function App() {
+function Room() {
+  const [isLit, setLit] = useState(true);
+  const [temp, setTemp] = useState(72);
+  // const brightness = 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+    <div className={`room ${isLit ? 'lit' : 'dark'}`}>
+      <div >the room is {isLit ? 'lit' : 'dark'}</div>
+      <div >The Room Temperature is {temp}</div>
+      <br />
+      <button onClick={() => setLit(true)}>Turn Light On</button>
+      <button onClick={() => setLit(false)}>Turn Light Off</button>
+      <br />
+      <br />
+      <button onClick={() => setTemp(temp+1)}>Increase Room Temperature</button>
+      <button onClick={() => setTemp(temp-1)}>Decrease Room Temperature</button>
     </div>
   );
 }
-
-export default App;
+export default Room;
